@@ -19,13 +19,13 @@
         "type": "quantitative"
       },
       "color": {
-        "field": "weather",
+        "field": "attacktype1_txt",
         "type": "nominal",
         "scale": {
-          "domain": ["sun", "fog", "drizzle", "rain", "snow"],
-          "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
+          "domain": ["Bombing/Explosion", "Assassination", "Armed Assault", "Hostage Taking (Kidnapping)", "Facility/Infrastructure Attack", "Unknown"],
+          "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd", "#90bd67"]
         },
-        "title": "Weather type"
+        "title": "Attack Type"
       }
     }
   }
