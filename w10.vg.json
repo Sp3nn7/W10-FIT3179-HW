@@ -28,7 +28,7 @@
             "value": [{"iyear": 2014}],
             "select": {"type": "point", "fields": ["iyear"]},
             "bind": {
-                "iyear": {"input": "range", "min": 2014, "max": 2017, "step": 1, "name": "Year Selector"}
+                "iyear": {"input": "range", "min": 2014, "max": 2017, "step": 1, "name": "Year Selector: "}
             }
         }
     ],
