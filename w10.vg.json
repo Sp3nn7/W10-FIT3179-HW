@@ -1,6 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "gtdb.csv"},
+    "transform":[
+        {
+          "filter": {"and": [{"field": "iyear", "equal": 2000}, {"field": "imonth", "equal": 8}, {"field": "iday", "gt": 0}]}
+        }
+    ],
     "mark": "bar",
     "encoding": {
       "x": {
