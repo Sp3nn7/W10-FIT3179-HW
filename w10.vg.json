@@ -15,8 +15,9 @@
         "title": "Month of the year"
       },
       "y": {
-        "aggregate": [{"op": "count", "as": "attackCount"}],
-        "type": "quantitative"
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Attack Types"
       },
       "color": {
         "field": "attacktype1_txt",
@@ -29,7 +30,7 @@
       },
       "tooltip": [
         {"field": "attacktype1_txt", "type": "nominal", "title": "Attack Type"},
-        {"field": "datum.attackCount", "type": "quantitative", "title": "Number of Attacks"}
+        {"aggregate": "count", "type": "quantitative", "title": "Number of Attacks"}
       ]
     }
   }
