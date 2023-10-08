@@ -23,6 +23,11 @@ body {
     width: 100%;
 }
 
+.pure-g pure-u-1-1,
+p {
+    text-align: center;
+}
+
 .description h2,
 h1 {
     margin-top: 0px;

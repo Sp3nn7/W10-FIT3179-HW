@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "gtdb.csv"},
+    "title": {"text": "Organizations Leading Terrorist Attacks", "align": "center"},
+    "data": {"url": "gtdb_2.csv"},
 
     "params":[
         {
@@ -61,7 +62,7 @@
     "mark": {"type": "arc", "innerRadius": 50},
     "encoding": {
       "theta": {"field": "Totalattacksfromgroup", "type": "quantitative"},
-      "color": {"field": "gname", "type": "nominal", "title": "Leading Terrorist Organizations"},
+      "color": {"field": "gname", "type": "nominal", "title": "Terrorist Organizations"},
 
       "tooltip": [
         {"field": "gname", "type": "nominal", "title": "Terrorist Organization"},
