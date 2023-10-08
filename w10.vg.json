@@ -1,11 +1,53 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "gtdb.csv"},
-    "transform":[
+
+
+
+    "params":[
         {
-          "filter": {"and": [{"field": "iyear", "equal": 2000}, {"field": "iday", "gt": 0}]}
+        "name": "attack_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+                null,
+                "Bombing/Explosion", "Assassination", "Armed Assault", "Hostage Taking (Kidnapping)", "Facility/Infrastructure Attack", "Unknown"
+            ],
+            "labels":[
+                "Show All",
+                "Bombing/Explosion", "Assassination", "Armed Assault", "Hostage Taking (Kidnapping)", "Facility/Infrastructure Attack", "Unknown"
+            ],
+            "name": "Attack Type Selection: "
+        }
+                
+        },
+
+
+        {
+            "name": "year_selection",
+            "value": [{"iyear": 2014}],
+            "select": {"type": "point", "fields": ["iyear"]},
+            "bind": {
+                "iyear": {"input": "range", "min": 2014, "max": 2017, "step": 1}
+            }
         }
     ],
+
+
+    "transform":[
+        {
+          "filter": {"and": [{"field": "iyear", "gte": 2014}, {"field": "iyear", "lte": 2017}, {"field": "iday", "gt": 0}]}
+        },
+
+        {"filter": "attack_selection == null || datum.attacktype1_txt == attack_selection"},
+
+        {"filter": {"param": "year_selection"}}
+
+    ],
+    
+
+        
+
     "mark": "bar",
     "encoding": {
       "x": {
@@ -22,12 +64,15 @@
       "color": {
         "field": "attacktype1_txt",
         "type": "nominal",
+  
         "scale": {
           "domain": ["Bombing/Explosion", "Assassination", "Armed Assault", "Hostage Taking (Kidnapping)", "Facility/Infrastructure Attack", "Unknown"],
           "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd", "#90bd67"]
         },
         "title": "Attack Type"
       },
+
+
       "tooltip": [
         {"field": "attacktype1_txt", "type": "nominal", "title": "Attack Type"},
         {"aggregate": "count", "type": "quantitative", "title": "Number of Attacks"}
