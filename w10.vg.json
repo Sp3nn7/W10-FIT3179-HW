@@ -15,7 +15,7 @@
         "title": "Month of the year"
       },
       "y": {
-        "aggregate": "count",
+        "aggregate": [{"op": "count", "as": "attackCount"}],
         "type": "quantitative"
       },
       "color": {
@@ -26,7 +26,11 @@
           "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd", "#90bd67"]
         },
         "title": "Attack Type"
-      }
+      },
+      "tooltip": [
+        {"field": "attacktype1_txt", "type": "nominal", "title": "Attack Type"},
+        {"field": "datum.attackCount", "type": "quantitative", "title": "Number of Attacks"}
+      ]
     }
   }
   
