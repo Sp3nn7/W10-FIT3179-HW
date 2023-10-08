@@ -3,14 +3,14 @@
     "data": {"url": "gtdb.csv"},
     "transform":[
         {
-          "filter": {"and": [{"field": "iyear", "equal": 2000}, {"field": "imonth", "equal": 8}, {"field": "iday", "gt": 0}]}
+          "filter": {"and": [{"field": "iyear", "equal": 2000}, {"field": "iday", "gt": 0}]}
         }
     ],
     "mark": "bar",
     "encoding": {
       "x": {
         "timeUnit": "month",
-        "field": "date",
+        "field": "imonth",
         "type": "ordinal",
         "title": "Month of the year"
       },
